@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.IShoufa">
+    <!-- select语句 -->
+    <select id="selectShoufa" resultType="Shoufa">
+        select * from shoufa
+    </select>
+    <select id="selectShoufaByID" parameterType="int" resultType="Shoufa">
+        select * from shoufa where shoufa.commodity_id = #{commodity_id}
+    </select>
+
+    <insert id="addShoufa" parameterType="Shoufa" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into shoufa(commodity_id,time)  
+             values(#{commodity_id},#{time})  
+    </insert>
+    
+    <update id="updateShoufa" parameterType="Shoufa" >
+        update shoufa set time=#{time}where commodity_id=#{commodity_id}
+    </update>
+    
+    <delete id="deleteShoufa" parameterType="int">
+        delete from shoufa where commodity_id=#{commodity_id}
+    </delete>
+    
+</mapper>

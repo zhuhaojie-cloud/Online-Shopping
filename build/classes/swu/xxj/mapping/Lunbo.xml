@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.ILunbo">
+    <!-- select语句 -->
+    <select id="selectLunbo" resultType="Lunbo">
+        select * from lunbo
+    </select>
+    <select id="selectLunboByID" parameterType="int" resultType="Lunbo">
+        select * from lunbo where lunbo.id = #{id}
+    </select>
+
+    <insert id="addLunbo" parameterType="Lunbo" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into lunbo(title,hot,fb_time,author,content,image)  
+             values(#{title},#{hot},#{fb_time},#{author},#{content},#{image})  
+    </insert>
+    
+    <update id="updateLunbo" parameterType="Lunbo" >
+        update lunbo set title=#{title},hot=#{hot},fb_time=#{fb_time},author=#{author},content=#{content},image=#{image}where id=#{id}
+    </update>
+    
+    <delete id="deleteLunbo" parameterType="int">
+        delete from lunbo where id=#{id}
+    </delete>
+    
+</mapper>

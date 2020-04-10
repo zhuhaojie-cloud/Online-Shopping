@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- mybatis别名定义，以后使用该类的时候可以直接使用别名，而不用写包名 -->
+    <typeAliases> 
+        <typeAlias alias="User" type="swu.xxj.entity.User"/> 
+        <typeAlias alias="Gouwuche" type="swu.xxj.entity.Gouwuche"/> 
+        <typeAlias alias="Lunbo" type="swu.xxj.entity.Lunbo"/> 
+        <typeAlias alias="Commodity_image" type="swu.xxj.entity.Commodity_image"/> 
+        <typeAlias alias="Commodity_infor" type="swu.xxj.entity.Commodity_infor"/> 
+        <typeAlias alias="Notice_infor" type="swu.xxj.entity.Notice_infor"/> 
+        <typeAlias alias="Shoufa" type="swu.xxj.entity.Shoufa"/>
+        <typeAlias alias="Coupon" type="swu.xxj.entity.Coupon"/>
+        <typeAlias alias="Lingjuan" type="swu.xxj.entity.Lingjuan"/>
+        <typeAlias alias="Duizhao" type="swu.xxj.entity.Duizhao"/>
+        <typeAlias alias="Shoucang_shangpin" type="swu.xxj.entity.Shoucang_shangpin"/>
+         <typeAlias alias="Kefu_jilu" type="swu.xxj.entity.Kefu_jilu"/>
+    </typeAliases> 
+    <environments default="development">
+        <environment id="development">
+        <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+            <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="url" value="jdbc:mysql://localhost:3306/test?useSSL=false&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"/>
+            <property name="username" value="root"/>
+            <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <!-- mybatis的mapper文件，每个xml配置文件对应一个接口 -->
+    <mappers>
+        <mapper resource="swu/xxj/mapping/User.xml"/>
+        <mapper resource="swu/xxj/mapping/Gouwuche.xml"/>
+        <mapper resource="swu/xxj/mapping/Lunbo.xml"/>
+        <mapper resource="swu/xxj/mapping/Commodity_image.xml"/>
+        <mapper resource="swu/xxj/mapping/Commodity_infor.xml"/>
+        <mapper resource="swu/xxj/mapping/Notice_infor.xml"/>
+        <mapper resource="swu/xxj/mapping/Shoufa.xml"/>
+        <mapper resource="swu/xxj/mapping/Coupon.xml"/>
+        <mapper resource="swu/xxj/mapping/Lingjuan.xml"/>
+        <mapper resource="swu/xxj/mapping/Duizhao.xml"/>
+        <mapper resource="swu/xxj/mapping/Shoucang_shangpin.xml"/>
+        <mapper resource="swu/xxj/mapping/Kefu_jilu.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.IGouwuche">
+    <!-- select语句 -->
+    <select id="selectGouwucheByID" parameterType="int" resultType="Gouwuche">
+        select * from gouwuche where gouwuche.id = #{id}
+    </select>
+    <select id="selectGouwucheByUser_id" parameterType="int" resultType="Gouwuche">
+        select * from gouwuche where user_id = #{user_id}
+    </select>
+    <insert id="addGouwuche" parameterType="Gouwuche" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into gouwuche(commodity_id,commodity_name,user_id,price,number,commodity_image,lei,time)  
+             values(#{commodity_id},#{commodity_name},#{user_id},#{price},#{number},#{commodity_image},#{lei},#{time})  
+    </insert>
+    
+    <update id="updateGouwuche" parameterType="Gouwuche" >
+        update gouwuche set commodity_id=#{commodity_id},commodity_name=#{commodity_name},user_id=#{user_id},price=#{price},number=#{number},commodity_image=#{commodity_image},lei=#{lei},time=#{time}where id=#{id}
+    </update>
+    
+    <delete id="deleteGouwuche" parameterType="int">
+        delete from gouwuche where id=#{id}
+    </delete>
+    
+</mapper>

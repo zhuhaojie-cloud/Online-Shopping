@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.INotice_infor">
+    <!-- select语句 -->
+    <select id="selectNotice_infor" resultType="Notice_infor">
+        select * from notice_infor
+    </select>
+    <select id="selectNotice_inforByID" parameterType="int" resultType="Notice_infor">
+        select * from notice_infor where notice_infor.notice_id = #{notice_id}
+    </select>
+
+    <insert id="addNotice_infor" parameterType="Notice_infor" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into notice_infor(notice_type,title,content,time,author,image)  
+             values(#{notice_type},#{title},#{content},#{time},#{author},#{image})  
+    </insert>
+    
+    <update id="updateNotice_infor" parameterType="Notice_infor" >
+        update notice_infor set notice_type=#{titnotice_typele},title=#{title},content=#{content},time=#{time},author=#{author},image=#{image}where notity_id=#{notity_id}
+    </update>
+    
+    <delete id="deleteNotice_infor" parameterType="int">
+        delete from notice_infor where notity_id=#{notity_id}
+    </delete>
+    
+</mapper>

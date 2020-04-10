@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.IKefu_jilu">
+    <!-- select语句 -->
+   
+    <select id="selectKefu_jiluByUser_id" parameterType="int" resultType="Kefu_jilu">
+        select * from kefu where user_id = #{user_id}
+    </select>
+    <select id="selectKefu_jilu" resultType="Kefu_jilu">
+        select * from kefu order by id desc
+    </select>
+    <insert id="addKefu_jilu" parameterType="Kefu_jilu" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into kefu(user_id,time,sender_id,content,image)  
+             values(#{user_id},#{time},#{sender_id},#{content},#{image})  
+    </insert>
+    
+</mapper>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.IMenber_mode">
+    <!-- select语句 -->
+    <select id="selectMenber_mode" resultType="Shoufa">
+        select * from menber_mode
+    </select>
+    <select id="selectMenber_modeByID" parameterType="int" resultType="Menber_mode">
+        select * from menber_mode where menber_mode.id = #{id}
+    </select>
+</mapper>

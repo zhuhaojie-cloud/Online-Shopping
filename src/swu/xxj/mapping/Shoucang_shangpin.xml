@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.IShoucang_shangpin">
+    <!-- select语句 -->
+    <select id="selectShoucang_shangpin" resultType="Shoucang_shangpin">
+        select * from shoucang_shangpin
+    </select>
+    <select id="selectShoucang_shangpinByUser_id" parameterType="int" resultType="Shoucang_shangpin">
+        select * from shoucang_shangpin where shoucang_shangpin.user_id = #{user_id}
+    </select>
+
+    <insert id="addShoucang_shangpin" parameterType="Shoucang_shangpin" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into shoucang_shangpin(commodity_id,user_id,time)  
+             values(#{commodity_id},#{user_id},#{time})  
+    </insert>
+    
+    <update id="updateShoucang_shangpin" parameterType="Shoucang_shangpin" >
+        update shoucang_shangpin set commodity_id=#{commodity_id},user_id=#{user_id},time=#{time}where id=#{id}
+    </update>
+    
+    <delete id="deleteShoucang_shangpin" parameterType="int">
+        delete from shoucang_shangpin where id=#{id}
+    </delete>
+    
+</mapper>

@@ -1,0 +1,13 @@
+ #container2{width:1255px; height:450px;padding-top:40px; position:relative;overflow:hidden;margin:0 auto;}
+  #list2{width:8785px; height:450px; position:absolute; z-index:1;}
+  #list2 div{float:left;height:500px;width:1255px;}
+  #buttons2{position:absolute; height:10px; width:1255px; z-index:2; top:0px; left:30%;}
+  #buttons2 span{cursor:pointer;/*¼Ù³¬Á´½ÓÑùÊ½*/ float:left; margin-right:0px;height:20px;width:120px;color:#ccc;padding:10px 0px 10px 20px;}
+  #buttons2 .on{background:orangered;color:#fff;}
+  .arrow2{cursor:pointer; display:none; line-height:39px; text-align:center; font-size:36px; 
+       font-weight:bold; width:40px; height:40px;  position:absolute; z-index:2; top:180px;
+background-color: RGBA(0,0,0,.3); color:#fff;}
+   .arrow2:hover{background-color:RGBA(0,0,0,.7);}
+   #container2:hover .arrow{display:block;}
+   #prev2{left:20px;top:250px;}
+   #next2{z-index:99;right:20px;top:250px;}

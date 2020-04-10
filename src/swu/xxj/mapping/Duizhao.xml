@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.IDuizhao">
+    <!-- select语句 -->
+    <select id="selectDuizhao" resultType="Duizhao">
+        select * from duizhao
+    </select>
+    <select id="selectDuizhaoByUser_id" parameterType="int" resultType="Duizhao">
+        select * from duizhao where duizhao.user_id = #{user_id}
+    </select>
+
+    <insert id="addDuizhao" parameterType="Duizhao" 
+        useGeneratedKeys="true" keyProperty="id"> 
+        insert into duizhao(user_id,commodity_id,image,commodity_name,price)  
+             values(#{user_id},#{commodity_id},#{image},#{commodity_name},#{price})  
+    </insert>
+    
+    <update id="updateDuizhao" parameterType="Shoufa" >
+        update duizhao set user_id=#{user_id},commodity_id=#{commodity_id},image=#{image},commodity_name=#{commodity_name},price=#{price}where id=#{id}
+    </update>
+    
+    <delete id="deleteDuizhao" parameterType="int">
+        delete from duizhao where user_id=#{user_id}
+    </delete>
+    
+</mapper>

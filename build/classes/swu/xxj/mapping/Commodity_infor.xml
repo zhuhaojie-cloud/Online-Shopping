@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="swu.xxj.entity.ICommodity_infor">
+    <!-- select语句select * from bumen_baoming where first like ? or two like ? or tiao like ? 
+    -->
+    <select id="getCommodity_infor" resultType="Commodity_infor" parameterType="string">
+       select * from commodity_infor where commodity_name like #{content}
+    </select>
+     <select id="selectAllCommodity_infor" resultType="Commodity_infor" parameterType="map">
+       select * from commodity_infor limit #{start},#{end}
+    </select>
+    <select id="selectCommodityCount" resultType="int">
+        select count(*) from commodity_infor
+    </select>
+    <select id="selectCommodity_infor" resultType="Commodity_infor">
+        select * from commodity_infor
+    </select>
+    <select id="selectCommodity_inforByID" parameterType="int" resultType="Commodity_infor">
+        select * from commodity_infor where commodity_infor.commodity_id = #{commodity_id}
+    </select>
+
+    <insert id="addCommodity_infor" parameterType="Commodity_infor" 
+        useGeneratedKeys="true" keyProperty="commodity_id"> 
+        insert into commodity_infor(commodity_id,commodity_name,number,type_id,price,describe,fuwu,image)  
+             values(#{commodity_id},#{commodity_name},#{number},#{type_id},#{price},#{describe},#{fuwu},${image})  
+    </insert>
+    
+    <update id="updateCommodity_infor" parameterType="Commodity_infor" >
+        update commodity_infor set commodity_id=#{commodity_id},commodity_name=#{commodity_name},number=#{number},type_id=#{type_id},price=#{price},describe=#{describe},fuwu=#{fuwu},{image}=#{image}where commodity_id=#{commodity_id}
+    </update>
+    
+    <delete id="deleteCommodity_infor" parameterType="int">
+        delete from commodity_infor where commodity_id=#{commodity_id}
+    </delete>
+    
+</mapper>

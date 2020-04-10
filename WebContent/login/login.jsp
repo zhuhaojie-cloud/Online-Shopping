@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%
+   int user_id=0;
+   session.setAttribute("user_id", user_id);
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>登录</title>
+</head>
+<body style="margin:0;padding:0;">
+  <div style="width:100%;height:150px;background: #ccd">
+     <div style="width:30%;margin:0 auto;height:120px">
+        <div style="margin-top:20px;float:right;width:50%;height:100%;font-size:45px;font-family: serif;">欢迎登录</div>
+        <div style="float:left;width:50%;height:100%">
+           <img src="${pageContext.request.contextPath}/images/logo.png" style="width:80px;height:80px;margin:10px 0 0 50px;">
+        </div>
+     </div>
+     <div style="width:100%;height:30px;background: #cdd">
+       <a href="${pageContext.request.contextPath}/Home" style="text-decoration: none;margin-left:200px">首页</a>
+     </div>
+  </div>
+  <div style="width:100%;height:450px;background: #ddd;">
+     <div style="width:350px;height:360px;background: #fff;margin:0 auto;">
+       <div style="width:100%;height:50px;">
+         <div style="width:50%;height:100%;float:right;padding-top:10px;"><a style="margin-left:20px" id="saoma">扫码登录<a></a></div>
+         <div style="width:50%;height:100%;float:left;padding-top:10px;"><a style="margin-left:100px" id="zhanghu">账户登录</a></div>
+       </div>
+       <div style="width:100%;height:250px;background: #dee">
+         <div style="width:80%;height:250px;margin:0 auto;" id="zhanghu_xian">
+           <form role="form" action="${pageContext.request.contextPath}/Userlogin" method="post">
+		     <input style="margin:20px 0 20px 0;width:250px;padding: 8px 10px 7px;border: 1px solid #CCC;color: #333;font-size:14px;line-height: 21px;" type="text" class="form-control" placeholder="用户名" name="userName" required autofocus />
+		     <input style="margin:0px 0 20px 0;width:250px;padding: 8px 10px 7px;border: 1px solid #CCC;color: #333;font-size:14px;line-height: 21px;" type="password" class="form-control" placeholder="密码" name="userPassword" required />
+		     <button type="submit" style="margin-bottom:20px;display: block;width: 270px; height: 42px;color: #fff;text-align: center;border: 0 none;outline: 0;word-spacing: 3px;cursor: pointer;background: #ff5757;"><a>登录</a></button>
+		    <div style="float:right">
+			  <input type="checkbox" value="remember-me"> 记住我
+		   </div>
+		   <div style="float:left">
+		     <a style="text-decoration:none;" href="${pageContext.request.contextPath}/login/forget.jsp" >忘记密码?</a>
+		     <a style="text-decoration:none;" href="${pageContext.request.contextPath}/login/register.jsp">注册</a>
+	       </div>
+	     </form>
+           </div>
+            <div style="display:none;width:80%;height:250px;margin:0 auto" id="saoma_xian">
+              <img src="images/aa1.jpg" style="width:100%;height:90%">
+            </div>
+       <div style="width:70%;height:50px;margin:0 auto;margin-top:10px;">
+          <a href="" target="_parent" title="QQ" style="border-right: 1px solid #e6e6e6;text-decoration:none;float: left;white-space: nowrap;cursor: pointer;color: #5e5e5e;padding: 0 8px;margin: 6px 0;"><em>QQ</em></a>
+          <a href="" target="_parent" title="QQ" style="border-right: 1px solid #e6e6e6;text-decoration:none;float: left;white-space: nowrap;cursor: pointer;color: #5e5e5e;padding: 0 8px;margin: 6px 0;"><em>微信</em></a>
+          <a href="" target="_parent" title="QQ" style="border-right: 1px solid #e6e6e6;text-decoration:none;float: left;white-space: nowrap;cursor: pointer;color: #5e5e5e;padding: 0 8px;margin: 6px 0;"><em>微博</em></a>
+          <a href="" target="_parent" title="QQ" style="border-right: 1px solid #e6e6e6;text-decoration:none;float: left;white-space: nowrap;cursor: pointer;color: #5e5e5e;padding: 0 8px;margin: 6px 0;"><em>支付宝</em></a>
+       </div>
+     </div>
+    
+     </div>
+  </div>
+  <div style="width:100%;height:100px;background: #edd"></div>
+  <script>
+     document.getElementById('saoma').onclick=function(){
+    	 document.getElementById('saoma_xian').style.display="block";
+    	 document.getElementById('zhanghu_xian').style.display="none";
+     }
+     document.getElementById('zhanghu').onclick=function(){
+    	 document.getElementById('zhanghu_xian').style.display="block";
+    	 document.getElementById('saoma_xian').style.display="none";
+     }
+  </script>
+</body>
+</html>
